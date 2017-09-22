@@ -1,0 +1,35 @@
+{
+  "id": "/pip",
+  "container": {
+    "type": "DOCKER",
+    "docker": {
+      "image": "vishaldenge/web",
+      "network": "BRIDGE",
+      "portMappings": [
+        {
+          "hostPort": 0,
+          "containerPort": 80,
+          "labels": {
+            "VIP_0": "/nginx:80"
+          }
+        }
+      ],
+      "forcePullImage": true
+    }
+  },
+  "instances": 2,
+  "cpus": 0.1,
+  "mem": 128,
+  "disk": 64,
+  "healthChecks": [{
+    "protocol": "HTTP",
+    "path": "/",
+    "portIndex": 0,
+    "timeoutSeconds": 10,
+    "gracePeriodSeconds": 10,
+    "intervalSeconds": 2,
+    "maxConsecutiveFailures": 10
+  }],
+  "labels": {
+  }
+}

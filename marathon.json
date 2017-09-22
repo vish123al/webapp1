@@ -3,7 +3,7 @@
   "container": {
     "type": "DOCKER",
     "docker": {
-      "image": "vishaldenge/web",
+      "image": "vishaldenge/test1",
       "network": "BRIDGE",
       "portMappings": [
         {
